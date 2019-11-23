@@ -1,8 +1,8 @@
 CFLAGS = -std=gnu11 -O3 -Wall -Wpedantic -g -flto
-LDFLAGS = -g -lm -flto
+LDFLAGS = -g -lm -flto -no-pie
 VERSION = 0.3.2
 
-all: createNG enumNG evalPW alphabetCreator clean-o
+all: createNG enumNG evalPW alphabetCreator clean-o clean
 
 src/cmdlineCreateNG.c: src/cmdlineCreateNG.c.in
 	sed s/cmdlineCreateNG.h.in/cmdlineCreateNG.h/g src/cmdlineCreateNG.c.in > src/cmdlineCreateNG.c

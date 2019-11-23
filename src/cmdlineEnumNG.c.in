@@ -612,12 +612,15 @@ cmdline_parser_internal (
         { "verboseFile",	0, NULL, 'F' },
         { "printWarnings",	0, NULL, 'w' },
         { "config",	1, NULL, 'C' },
+        { "result-folder", 1, NULL, 'r'},
+        { "result-filename", 1, NULL, 'R'},
         { 0,  0, 0, 0 }
       };
+      c = getopt_long (argc, argv, "hVu:s:pa:H:L:S:Ol:m:eEvFwC:r:R:", long_options, &option_index);
 
-      c = getopt_long (argc, argv, "hVu:s:pa:H:L:S:Ol:m:eEvFwC:", long_options, &option_index);
-
-      if (c == -1) break;	/* Exit from `while (1)' loop.  */
+      if (c == -1) {
+        break;
+      }	/* Exit from `while (1)' loop.  */
 
       switch (c)
         {
@@ -810,6 +813,10 @@ cmdline_parser_internal (
 
           break;
 
+        case 'r':
+          break;
+        case 'R':
+          break;
         case 0:	/* Long option with no short option */
           /* Controls wether EPs are boosted or not..  */
           if (strcmp (long_options[option_index].name, "boostEP") == 0)

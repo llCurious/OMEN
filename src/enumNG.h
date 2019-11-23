@@ -107,6 +107,7 @@ bool enumerate_password (int levelChain[MAX_PASSWORD_LENGTH], // levelChain spec
  */
 void create_resultFolder ();
 
+void create_result_folder ();
 /*
  * Prints the by arguments selected mode as well as the output and input filenames
  * to the given file pointer @fp.

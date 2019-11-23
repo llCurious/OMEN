@@ -8,6 +8,8 @@ LN.level
 alphabetCreator
 charFrequency.txt
 createConfig
+*.level
+createNG
 enumNG
 evalPW
 results/

@@ -70,6 +70,7 @@ unsigned int glbl_fixedLenght = 0;  // if fixedLength != 0 -> only create PWs of
 
 // file pointer
 char glbl_resultsFolder[256] = { '\0' };
+char glbl_results_filename[256] = { '\0' };
 
 FILE *glbl_FP_generatedPasswords = NULL;  // generated PWs (based on selected mode either all or only cracked ones are stored)
 
@@ -91,6 +92,22 @@ int main (int argc, char **argv)
   {
     printf ("failed parsing command line arguments\n");
     exit (EXIT_FAILURE);
+  }
+  char *_glbl_result_folder = "--result-folder";
+  char *_glbl_result_filename = "--result-filename";
+  for (int i = 1; i < argc; i++) {
+    if (strncmp(argv[i], _glbl_result_folder, strlen(_glbl_result_folder)) == 0) {
+      i += 1;
+      struct stat st;
+      if (stat (argv[i], &st) != 0) {
+        mkdir (argv[i], S_IRWXO | S_IRWXG | S_IRWXU);
+      }
+      snprintf(glbl_resultsFolder, sizeof (glbl_resultsFolder), argv[i]);
+    }
+    if (strncmp(argv[i], _glbl_result_filename, strlen(_glbl_result_filename)) == 0) {
+      i += 1;
+      
+    }
   }
   // set exit_routine so that it will be automatically called at the end of the application
   atexit (exit_routine);
@@ -192,7 +209,7 @@ void initialize ()
   set_timestampWithDiff (stdout, false, false);
 
   // create the result folder
-  create_resultFolder ();
+  // create_resultFolder ();
 
   // initializing and setting default values for all global parameters
 

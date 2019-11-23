@@ -61,8 +61,8 @@ extern int exit_status;
  */
 // default alphabet
 // #define DEFAULT_ALPHABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!.*@-_$#<>()?"
-#define DEFAULT_ALPHABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!.*@-_$#<?"
-// #define DEFAULT_ALPHABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$&'()*,-./:;<=>?@[]^_ `{}~\"+\\%|"
+// #define DEFAULT_ALPHABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!.*@-_$#<?"
+#define DEFAULT_ALPHABET "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$&'()*,-./:;<=>?@[]^_ `{}~\"+\\%|"
 // max size of a new alphabet (read from command line)
 #define MAX_ALPHABET_SIZE 1024
 // size of default alphabet
@@ -76,7 +76,7 @@ extern int exit_status;
  *  password length and level bounds
  */
 // maximum password length
-#define MAX_PASSWORD_LENGTH 20
+#define MAX_PASSWORD_LENGTH 255
 // maximum level
 #define MAX_LEVEL 11            // 0, 1, ..., 9, 10
 // maximum line length while reading input files
