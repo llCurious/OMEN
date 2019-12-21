@@ -106,7 +106,7 @@ int main (int argc, char **argv)
     }
     if (strncmp(argv[i], _glbl_result_filename, strlen(_glbl_result_filename)) == 0) {
       i += 1;
-      
+      snprintf(glbl_results_filename, sizeof (glbl_results_filename), argv[i]);
     }
   }
   // set exit_routine so that it will be automatically called at the end of the application
@@ -237,7 +237,7 @@ void exit_routine ()
   if (exit_status != -1)
   {                             // -1 = exit after printing help text
     // and log file to HD (filename: log/<date>.log)
-    bool logSuccessful = print_log ();
+    // bool logSuccessful = print_log ();
 
     // print results
     if (glbl_verboseMode)
@@ -247,14 +247,14 @@ void exit_routine ()
 
       // print report
       print_report_enumNG (stdout);
-      if (logSuccessful)
+      /* if (logSuccessful)
       {
         printf ("Log file successfully created.\n\n");
       }
       else
       {
         errorHandler_print (errorType_Error, "Unable to create the log file.\n\n");
-      }
+      } */
     }
     switch (exit_status)
     {
@@ -437,7 +437,7 @@ bool apply_settings ()
   if (!glbl_pipeMode)
   {
     // .. try to create the basic result file
-    if (!open_file (&glbl_FP_generatedPasswords, glbl_resultsFolder, "/createdPWs.txt", "w"))
+    if (!open_file (&glbl_FP_generatedPasswords, glbl_resultsFolder, glbl_results_filename, "w"))
     {
       errorHandler_print (errorType_Error, "Unable to create result file\n");
       return false;
