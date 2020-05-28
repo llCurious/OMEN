@@ -100,7 +100,7 @@ int main (int argc, char **argv)
       i += 1;
       struct stat st;
       if (stat (argv[i], &st) != 0) {
-        mkdir (argv[i], S_IRWXO | S_IRWXG | S_IRWXU);
+        mkdir (argv[i]);
       }
       snprintf(glbl_resultsFolder, sizeof (glbl_resultsFolder), argv[i]);
     }
@@ -196,14 +196,14 @@ void initialize ()
   setvbuf (stdout, NULL, _IONBF, 0);
   setvbuf (stderr, NULL, _IONBF, 0);
 
-  // set signal handler for sigint to handle user input during runtime
-  struct sigaction sigIntHandler;
-
-  sigIntHandler.sa_handler = sigint_handler;
-  sigemptyset (&sigIntHandler.sa_mask);
-  sigIntHandler.sa_flags = 0;
-
-  sigaction (SIGINT, &sigIntHandler, NULL);
+//  // set signal handler for sigint to handle user input during runtime
+//  struct sigaction sigIntHandler;
+//
+//  sigIntHandler.sa_handler = sigint_handler;
+//  sigemptyset (&sigIntHandler.sa_mask);
+//  sigIntHandler.sa_flags = 0;
+//
+//  sigaction (SIGINT, &sigIntHandler, NULL);
 
   // set time stamp
   set_timestampWithDiff (stdout, false, false);
@@ -1028,7 +1028,7 @@ void create_resultFolder ()
 
   if (stat ("results", &st) != 0)
   {                             // check if folder results exist else..
-    mkdir ("results", S_IRWXO | S_IRWXG | S_IRWXU); // create folder results
+    mkdir ("results"); // create folder results
   }
 
   snprintf (glbl_resultsFolder, sizeof (glbl_resultsFolder), "results/");

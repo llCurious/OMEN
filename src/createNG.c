@@ -46,36 +46,36 @@ bool glbl_storeWarnings = false;  // if TRUE all occurring warnings are saved to
 
 struct gengetopt_args_info glbl_args_info;
 
-int main (int argc, char *argv[])
-{
-  // let's call our cmdline parser
-  if (cmdline_parser (argc, argv, &glbl_args_info) != 0)
-  {
-    printf ("failed parsing command line arguments\n");
-    exit (EXIT_FAILURE);
-  }
-  // set exit_routine so thats automatically called
-  atexit (exit_routine);
-
-  // initialize global parameters
-  initialize ();
-
-  // evaluate given arguments
-  if (!evaluate_arguments (&glbl_args_info))
-  {
-    exit (1);
-  }
-
-  // print selected mode and filenames
-  if (glbl_verboseMode)
-    print_settings_createNG (stdout);
-
-  // run nGram creation
-  if (!run_creation ())
-    exit (1);
-
-  exit (EXIT_SUCCESS);
-}                               // main
+//int main (int argc, char *argv[])
+//{
+//  // let's call our cmdline parser
+//  if (cmdline_parser (argc, argv, &glbl_args_info) != 0)
+//  {
+//    printf ("failed parsing command line arguments\n");
+//    exit (EXIT_FAILURE);
+//  }
+//  // set exit_routine so thats automatically called
+//  atexit (exit_routine);
+//
+//  // initialize global parameters
+//  initialize ();
+//
+//  // evaluate given arguments
+//  if (!evaluate_arguments (&glbl_args_info))
+//  {
+//    exit (1);
+//  }
+//
+//  // print selected mode and filenames
+//  if (glbl_verboseMode)
+//    print_settings_createNG (stdout);
+//
+//  // run nGram creation
+//  if (!run_creation ())
+//    exit (1);
+//
+//  exit (EXIT_SUCCESS);
+//}                               // main
 
 // initializes the values with their defaults values
 void initialize ()

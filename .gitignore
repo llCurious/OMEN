@@ -21,3 +21,6 @@ src/cmdlineEnumNG.c
 src/cmdlineEnumNG.h
 src/cmdlineEvalPW.c
 src/cmdlineEvalPW.h
+.idea
+cmake-build-debug
+*.count

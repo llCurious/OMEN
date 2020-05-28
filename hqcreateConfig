@@ -1,0 +1,17 @@
+### Config for input file <test.txt> on Thu May 28 16:38:00 2020
+### with the following settings:
+# -alphabet abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$&'()*,-./:;<=>?@[]^_ `{}~"+\%|
+# -alphabetsize 95 
+# -ngram 4 
+# -maxLevel 11 
+# -verbose 1 
+# - Selected smoothing: additive
+#	- delta:
+#	  - IP: 1; CP: 1; EP: 1; LN: 0;
+#	- levelAdjustFactor:
+#	  - IP: 250; CP: 2; EP: 250; LN: 1;
+# -cpout hqCP 
+# -ipout hqIP 
+# -epout hqEP 
+# -lenout hqLN
+# -input test.txt
